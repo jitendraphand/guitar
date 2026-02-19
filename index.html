@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strumming Practice</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Strumming Practice</h1>
+            <p>Master the rhythm: <span>D-UUD-UUD</span></p>
+        </header>
+
+        <div class="display-area">
+            <div class="hit-zone-marker"></div>
+            <div class="track" id="track">
+                <!-- Arrows will be generated here -->
+            </div>
+        </div>
+
+        <div class="controls">
+            <button id="startStopBtn" class="btn primary">Start</button>
+            <div class="control-group">
+                <label for="bpmInput">BPM: <span id="bpmValue">100</span></label>
+                <input type="range" id="bpmInput" min="40" max="240" value="100">
+            </div>
+            <div class="control-group" style="width: 100%; max-width: 600px;">
+                <label>Pattern Playlist:</label>
+                <div class="playlist-controls">
+                    <div class="playlist-controls">
+                        <!-- Dynamic Builder Controls will be inside each item now -->
+                    </div>
+                </div>
+                <div id="playlistContainer">
+                    <!-- Dynamic Playlist Items (Grids) will go here -->
+                </div>
+                <button id="addPatternBtn" class="btn secondary small" style="margin-top: 10px;">+ Add Pattern</button>
+            </div>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item"><span class="arrow-icon down">↓</span> Down Strum</div>
+            <div class="legend-item"><span class="arrow-icon up">↑</span> Up Strum</div>
+            <div class="legend-item"><span class="arrow-icon rest">-</span> Rest</div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
