@@ -9,7 +9,7 @@ let audioCtx;
 let isPlaying = false;
 let bpm = 100;
 let noteWidth = 50; // Visual width of one step
-let barWidth = 10;
+let barWidth = 40; // Increased for better separation
 
 let startTime = 0;
 let animationId;
@@ -358,8 +358,11 @@ function scheduleAudio() {
     while (nextScheduleTime < audioCtx.currentTime + lookahead) {
         const note = flattenedNotes[nextNoteIndex % flattenedNotes.length];
 
-        if (note.type === 'D' || note.type === 'U') {
-            playSound(note.type, nextScheduleTime);
+        // Only play if close to current time to avoid burst after lag/background
+        if (nextScheduleTime >= audioCtx.currentTime - 0.1) {
+            if (note.type === 'D' || note.type === 'U') {
+                playSound(note.type, nextScheduleTime);
+            }
         }
 
         const width = (note.type === 'BAR') ? barWidth : noteWidth;

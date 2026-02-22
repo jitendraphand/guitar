@@ -1,15 +1,15 @@
 :root {
-    --bg-color: #121212;
-    --text-color: #e0e0e0;
-    --primary-color: #bb86fc;
-    --secondary-color: #03dac6;
-    --accent-color: #cf6679;
-    --surface-color: #1e1e1e;
-    --arrow-down-color: #03dac6;
+    --bg-color: #f5f5f7;
+    --text-color: #333333;
+    --primary-color: #6200ee;
+    --secondary-color: #018786;
+    --accent-color: #b00020;
+    --surface-color: #ffffff;
+    --arrow-down-color: #00796b;
     /* Teal/Greenish for Down */
-    --arrow-up-color: #bb86fc;
+    --arrow-up-color: #6200ee;
     /* Purple for Up */
-    --hit-zone-color: #ffffff;
+    --hit-zone-color: #ff5252;
 }
 
 * {
@@ -55,7 +55,7 @@ header p span {
     position: relative;
     width: 100%;
     height: 150px;
-    background-color: #000;
+    background-color: #e0e0e0;
     margin: 30px 0;
     border-radius: 8px;
     overflow: hidden;
@@ -109,7 +109,7 @@ header p span {
 }
 
 .note.rest {
-    color: #444;
+    color: #aaa;
     font-size: 1.5rem;
 }
 
@@ -143,9 +143,9 @@ input[type="range"] {
 input[type="text"] {
     padding: 10px;
     border-radius: 5px;
-    border: 1px solid #444;
-    background-color: #2c2c2c;
-    color: white;
+    border: 1px solid #ccc;
+    background-color: #ffffff;
+    color: #333;
     font-size: 1.1rem;
     text-align: center;
     width: 80%;
@@ -186,14 +186,14 @@ input[type="text"] {
 
 .btn.secondary {
     background-color: transparent;
-    border: 1px solid #666;
-    color: #ccc;
+    border: 1px solid #999;
+    color: #555;
 }
 
 .btn.secondary:hover {
-    border-color: #aaa;
-    color: white;
-    background-color: rgba(255, 255, 255, 0.05);
+    border-color: #555;
+    color: #333;
+    background-color: rgba(0, 0, 0, 0.05);
 }
 
 .btn.danger {
@@ -236,7 +236,7 @@ input[type="text"] {
 }
 
 .arrow-icon.rest {
-    color: #444;
+    color: #aaa;
 }
 
 @media (min-width: 600px) {
@@ -259,9 +259,10 @@ input[type="text"] {
     gap: 15px;
     max-height: 300px;
     overflow-y: auto;
-    background: #222;
+    background: #f0f0f0;
     padding: 15px;
     border-radius: 8px;
+    border: 1px solid #ccc;
 }
 
 .playlist-item {
@@ -269,15 +270,16 @@ input[type="text"] {
     flex-direction: column;
     /* Stack controls and grid */
     gap: 10px;
-    background: #2c2c2c;
+    background: #ffffff;
     /* Card look */
     padding: 10px;
     border-radius: 6px;
     transition: background 0.2s;
+    border: 1px solid #e0e0e0;
 }
 
 .playlist-item:hover {
-    background: #333;
+    background: #fafafa;
 }
 
 .playlist-header {
@@ -290,9 +292,9 @@ input[type="text"] {
     width: 60px;
     padding: 5px;
     text-align: center;
-    background: #111;
-    border: 1px solid #555;
-    color: white;
+    background: #ffffff;
+    border: 1px solid #ccc;
+    color: #333;
     border-radius: 4px;
 }
 
@@ -312,8 +314,8 @@ input[type="text"] {
 .step-btn {
     width: 30px;
     height: 30px;
-    border: 1px solid #444;
-    background: #1a1a1a;
+    border: 1px solid #ccc;
+    background: #f0f0f0;
     border-radius: 4px;
     cursor: pointer;
     display: flex;
@@ -325,24 +327,24 @@ input[type="text"] {
 }
 
 .step-btn:hover {
-    border-color: #666;
+    border-color: #999;
 }
 
 .step-btn.down {
     background: var(--arrow-down-color);
-    color: #000;
+    color: #fff;
     box-shadow: 0 0 5px var(--arrow-down-color);
 }
 
 .step-btn.up {
     background: var(--arrow-up-color);
-    color: #000;
+    color: #fff;
     box-shadow: 0 0 5px var(--arrow-up-color);
 }
 
 .step-btn.active {
     /* Currently playing step */
-    border-color: white;
+    border-color: #000;
     transform: scale(1.1);
 }
 
@@ -361,11 +363,19 @@ input[type="text"] {
 
 /* Visual Bar Line */
 .note.bar-line {
-    width: 4px;
-    /* Thin line */
-    background-color: #444;
-    margin: 0 5px;
+    position: relative;
+    background-color: transparent;
+    margin: 0;
     height: 100%;
-    /* Full height */
-    align-self: center;
+}
+
+.note.bar-line::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 15%;
+    bottom: 15%;
+    width: 2px;
+    background-color: #888;
+    transform: translateX(-50%);
 }
